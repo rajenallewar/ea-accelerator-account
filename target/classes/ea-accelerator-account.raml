@@ -1,0 +1,35 @@
+#%RAML 0.8
+title: Sample API
+baseUri: http://localhost:8081/api
+version: 1.0.0
+mediaType: application/json
+
+/getClientAccountDetails:
+  description: get client account details based on client Id 
+  get:
+    description:  get client account details
+    queryParameters:
+        clientId:
+          type: string
+          required: true
+          example: 'C01'
+    responses:
+          200:
+            body:
+              application/json:
+                {}
+                
+/getAccountDetails:
+  description: get client account balance details based on account Id
+  get:
+    description: get client accountbalance details
+    queryParameters:
+        accountId:
+          type: string
+          required: true
+          example: '00997006975983'
+    responses:
+          200:
+            body:
+              application/json:
+                {}             

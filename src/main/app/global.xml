@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+
+	<!-- <http:request-config name="ACCOUNT_HTTP_Request_Configuration" host="34.66.216.192" port="80" doc:name="HTTP Request Configuration"/> -->
+	<http:request-config name="ACCOUNT_HTTP_Request_Configurationn" host="35.224.139.227"  doc:name="HTTP Request Configuration" protocol="HTTP" port="9301"/>
+    
+    <sub-flow name="copyRqstParams-subFlow">
+        <set-variable variableName="clientId" value="#[message.inboundProperties.'http.query.params'.clientId]" doc:name="clientId-Var"/>
+        <set-variable variableName="accountId" value="#[message.inboundProperties.'http.query.params'.accountId]" doc:name="accountId-Var"/>
+    </sub-flow>
+	
+</mule>
